@@ -14,22 +14,23 @@ body{
 }
 #background{
 	position:relative;
+	height:20vh;
 }
 header{
 	margin:auto;
-	width:79vw;	
-	height:22vh;
+	width:81vw;	
+	height:16vh;
 	background-image:url("../images/header.jpg");
 	background-position:center;
 	background-repeat:repeat-x;
 }
-nav{
+.navbar{
 	position:absolute;
-	width:100%;
+
 	align-content:center;
 	top:85px;
 }
-nav ul li{
+.navbar ul li{
 	display:inline-block;
 	margin-left:1%;
 	margin-right:1%;
@@ -43,11 +44,12 @@ nav ul li{
 .navBleu{
 	color:#38618d;	
 }
-nav ul li a{
+.navbar ul li a{
 	text-decoration:none;
 	text-shadow: 0px 8px 5px #909090; 	
+	font-size: 12px;
 }
-nav ul li a:onhover{
+.navbar ul li a:onhover{
 	/*transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);  */
 }
 #centre{
@@ -61,7 +63,8 @@ footer{
 	margin:auto;
 	width:80%;
 	height:75px;
-	
+	bottom:0;
+	position : fixed;
 }
 footer img{
 	max-width: 50px;

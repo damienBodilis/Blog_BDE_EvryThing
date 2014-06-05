@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-@media screen{
+
 #principal ul{
 	padding:0px;
 }
@@ -31,7 +31,7 @@
 
 }
 .article.contenudur{
-
+	
 }
 .grand .contenu img{
 	float:left;
@@ -39,7 +39,7 @@
 	max-height:200px;
 	margin-right:20px;
 }
-.petit .contenu img{
+.petitG .contenu img,.petitD .contenu img{
 	float:left;
 	max-width:100px;
 	max-height:200px;
@@ -48,26 +48,12 @@
 .grand{
 	width:96%;
 }
-.petit{
+.petitG{	
 	float:left;
 	width:46%;
+	margin-right:2%;
 }
-.footer{
-	
-}
-.commentaires{
-}
-.com{
-	display:none;
-	background-color:grey;
-	width:100%;
-	height:100px;
-	color : #e4e4e4;
-}
-.trait{
-	background-color:#e4e4e4;
-	border:2px;
-	border-style:groove;
-	width:100%;
-	height:1px;
+.petitD{
+	float:left;
+	width:46%;
 }
