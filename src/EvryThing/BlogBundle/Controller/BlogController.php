@@ -29,7 +29,7 @@ class BlogController extends Controller
 		// On récupère le repository
 	  $repository = $this->getDoctrine()
 						 ->getManager()
-						 ->getRepository('EvryThingBlogBundle:Article');
+						 ->getRepository('EvryThingBlogBundle:Blog');
 
 	  // On récupère tout les champs de l'entité 
 	  $articles = $repository->findAll();

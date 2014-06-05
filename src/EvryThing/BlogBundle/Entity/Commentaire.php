@@ -14,10 +14,10 @@ use Doctrine\ORM\Mapping as ORM;
 class Commentaire
 {
 	/**
-	* @ORM\ManyToOne(targetEntity="EvryThing\BlogBundle\Entity\Article")
+	* @ORM\ManyToOne(targetEntity="EvryThing\BlogBundle\Entity\Blog")
 	* @ORM\JoinColumn(nullable=false)
 	*/
-	private $article;
+	private $blog;
     /**
      * @var integer
      *
@@ -53,20 +53,20 @@ class Commentaire
 		$this->date = new \Datetime();
 	}
 	/**
-     * Get id
+     * Get blog
      *
-     * @return EvryThing\BlogBundle\Entity\Article $article 
+     * @return EvryThing\BlogBundle\Entity\Blog $blog 
      */
-	public function getArticle(){
-		return $this->article;
+	public function getBlog(){
+		return $this->blog;
 	}
 	/**
-	 * Set article
+	 * Set blog
 	 *
-	 * @param EvryThing\BlogBundle\Entity\Article $article
+	 * @param EvryThing\BlogBundle\Entity\Blog $blog
 	 */
-	public function setArticle($article){
-		$this->article = $article;
+	public function setBlog($blog){
+		$this->blog = $blog;
 	}
     /**
      * Get id
@@ -148,21 +148,20 @@ class Commentaire
     }
 	
 	/**
-	* +1 automatique de l'attribut 'nbCommentaire' de l'entité Article lors de l'ajout en base d'un nouveau commentaire.
+	* +1 automatique de l'attribut 'nbCommentaire' de l'entité Blog lors de l'ajout en base d'un nouveau commentaire.
 	
 	*/
-	public function AddCommentaireArticle()
+	/*public function AddCommentaireArticle()
 	{
 		$article = $this->getArticle();
-		$article->setNbCommentaire($article->getNbCommentaire()+1);
-	}
+	}/*
 	/**
 	* -1 automatique de l'attribut 'nbCommentaire' de l'entité Article lors de la suppression en base d'un commentaire.
 	
 	*/
-	public function RemoveCommentaireArticle()
+	/*public function RemoveCommentaireArticle()
 	{
 		$article = $this->getArticle();
 		$article->setNbCommentaire($article->getNbCommentaire()-1);
-	}
+	}*/
 }

@@ -35,8 +35,13 @@ class Blog
     /**
      * @ORM\Column(type="text")
      */
-    protected $blog;
+    protected $accroche;
 
+	/**
+     * @ORM\Column(type="text")
+     */
+    protected $contenu;
+	
     /**
      * @ORM\Column(type="string", length=20)
      */
@@ -47,7 +52,10 @@ class Blog
      */
     protected $tags;
 
-    protected $comments;
+	/**
+	* @ORM\OneToMany(targetEntity="EvryThing\BlogBundle\Entity\Commentaire", mappedBy="blog")
+	*/
+	private $commentaires; 
 
     /**
      * @ORM\Column(type="datetime")
@@ -59,6 +67,12 @@ class Blog
      */
     protected $updated;
 
+	
+	public function __construct()
+	{
+		$this->commentaires = new \Doctrine\Common\Collections\ArrayCollection();
+	}
+	
     /**
      * Get id
      *
@@ -116,27 +130,49 @@ class Blog
     }
 
     /**
-     * Set blog
+     * Set accroche
      *
-     * @param string $blog
+     * @param string $accroche
      * @return Blog
      */
-    public function setBlog($blog)
+    public function setAccroche($accroche)
     {
-        $this->blog = $blog;
-
+        $this->accroche = $accroche;
         return $this;
     }
 
     /**
-     * Get blog
+     * Get accroche
      *
      * @return string 
      */
-    public function getBlog()
+    public function getAccroche()
     {
-        return $this->blog;
+        return $this->accroche;
     }
+	
+	 /**
+     * Set contenu
+     *
+     * @param string $contenu
+     * @return Blog
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string 
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
 
     /**
      * Set image
@@ -229,22 +265,32 @@ class Blog
     {
         return $this->updated;
     }
-/*
-    public function __construct()
-    {
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
-    }
+/**
+	* @param EvryThing\BlogBundle\Entity\Commentaire $commentaire
+	* @return Blog
+	*/
+	public function addCommentaire(\EvryThing\BlogBundle\Entity\Commentaire $commentaire)
+	{
+		$this->commentaires[] = $commentaire;
+		return $this;
+	}
 
-    /**
-     * @ORM\preUpdate
-     */
-/*
-    public function setUpdatedValue()
-    {
-       $this->setUpdated(new \DateTime());
-    }
-*/
+	/**
+	* @param EvryThing\BlogBundle\Entity\Commentaire $commentaire
+	*/
+	public function removeCommentaire(\EvryThing\BlogBundle\Entity\Commentaire $commentaire)
+	{
+		$this->commentaires->removeElement($commentaire);
+	}	
+
+	/**
+	* @return Doctrine\Common\Collections\Collection
+	*/
+	public function getCommentaires()
+	{
+		return $this->commentaires;
+	}
+
 
 public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
