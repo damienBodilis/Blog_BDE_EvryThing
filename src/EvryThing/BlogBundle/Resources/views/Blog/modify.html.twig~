@@ -1,0 +1,19 @@
+{# src/EvryThing/BlogBundle/Resources/views/Blog/modify.html.twig #}
+{% extends 'EvryThingBlogBundle::layout.html.twig' %}
+
+{% block title %} Modify a blog{% endblock %}
+  	
+{% block principal %}
+
+   <form action="{{ path('evry_thing_blog_modify', { id: blog.id }) }}" method="POST" {{ form_enctype(form) }} class="EvryThing-Modify-Blog">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.author) }}
+        {{ form_row(form.blog) }}
+        {{ form_row(form.tags) }}
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}
+

@@ -1,0 +1,38 @@
+{# src/EvryThing/BlogBundle/Resources/views/Page/contact.html.twig #}
+{% extends 'EvryThingBlogBundle::layout.html.twig' %}
+
+{% block title %}Contact{% endblock%}
+
+
+{#
+{% for flashMessage in app.session.flashbag.get('notice') %}
+<div class="notice">
+{{ flashMessage }}
+</div>
+{% endfor %}
+#}
+
+{#
+ {% if app.session.hasFlash('notice') %}
+    <div class="notice">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+#}
+
+{% block principal %}
+   <p>Want to contact bitch?</p>
+
+   <form action="{{ path('evry_thing_blog_contact') }}" method="POST" {{ form_enctype(form) }} class="EvryThing">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.subject) }}
+        {{ form_row(form.body) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

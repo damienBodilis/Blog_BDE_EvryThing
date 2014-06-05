@@ -1,0 +1,18 @@
+{# src/EvryThing/BlogBundle/Resources/views/Blog/add.html.twig #}
+{% extends 'EvryThingBlogBundle::layout.html.twig' %}
+
+{% block title %} Add a blog{% endblock %}
+  	
+{% block principal %}
+
+   <form action="{{ path('evry_thing_blog_add') }}" method="POST" {{ form_enctype(form) }} class="EvryThing-Add-Blog">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.title) }}
+        {{ form_row(form.blog) }}
+        {{ form_row(form.tags) }}
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}
+

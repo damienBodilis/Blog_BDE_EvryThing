@@ -1,0 +1,21 @@
+{# src/EvryThing/BlogBundle/Resources/views/Blog/show.html.twig #}
+{% extends 'EvryThingBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block principal %}
+    <article class="blog">
+        {#<header>#}
+            <div class="date"><time datetime="{{ blog.created|date('c') }}">{{ blog.created|date('l, F j, Y') }}</time></div>
+            <div class="author"> {{ blog.author }} </div>
+            <h2>{{ blog.title }}</h2>
+        {#</header>#}
+        <img src="{{ asset(['bundles/evrythingblog/images/', blog.image]|join) }}" alt="{{ blog.title }} image not found" class="large" />
+        <div>
+            <p>{{ blog.blog }}</p>
+        </div>
+        <div>
+             <a href="{{ path('evry_thing_blog_delete', {{ id: blog.id }}) }}" onclick="return confirm('are you sure?')">delete</a>
+        </div>
+    </article>
+{% endblock %}

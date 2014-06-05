@@ -1,0 +1,7 @@
+parameters:
+#    evry_thing_document.example.class: EvryThing\DocumentBundle\Example
+
+services:
+#    evry_thing_document.example:
+#        class: %evry_thing_document.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,54 @@
+evry_thing_blog_accueil:
+    pattern:  /{page}
+    defaults : { _controller: EvryThingBlogBundle:Blog:accueil }
+    requirements:
+        page: \d*
+
+evry_thing_blog_admin:
+    pattern: /admin
+    defaults: { _controller: EvryThingBlogBundle:Blog:admin }
+
+evry_thing_blog_show:
+    pattern:  /article/{id}
+    defaults: { _controller: EvryThingBlogBundle:Blog:show }
+    requirements:
+        _method: GET
+        id: \d+
+
+evry_thing_blog_add:
+    pattern: /article/add
+    defaults: { _controller: EvryThingBlogBundle:Blog:add }
+    requirements:
+        _method: GET|POST
+
+evry_thing_blog_modify:
+    pattern: /article/modify/{id}
+    defaults: { _controller: EvryThingBlogBundle:Blog:modify }
+    requirements:
+       _method: GET|POST
+       id: \d+
+
+evry_thing_blog_delete:
+    pattern: /article/delete/{id}
+    defaults: { _controller: EvryThingBlogBundle:Blog:delete }
+    requirements:
+       _method: GET|POST
+       id: \d+
+
+evry_thing_blog_evry:
+    pattern: /evry
+    defaults: { _controller: EvryThingBlogBundle:Page:MiageEvry }
+
+evry_thing_blog_bde:
+    pattern: /bde
+    defaults: { _controller: EvryThingBlogBundle:Page:bdeEvry }
+
+evry_thing_blog_contact:
+    pattern: /contact
+    defaults: { _controller: EvryThingBlogBundle:Page:contact }
+    requirements:
+        _method: GET|POST
+
+evry_thing_blog_ajouterCommentaire:
+    pattern: /ajouterCom
+    defaults: { _controller: EvryThingBlogBundle:Blog:ajouterCom }

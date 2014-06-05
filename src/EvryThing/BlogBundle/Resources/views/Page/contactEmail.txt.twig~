@@ -1,0 +1,6 @@
+{# src/EvryThing/BlogBundle/Resources/view/Page/contactEmail.txt.twig #}Requete faite par {{ enquiry.name }} à {{ "now" | date("Y-m-d H:i") }}.
+
+Reply-To: {{ enquiry.email }}
+Subject: {{ enquiry.subject }}
+Body:
+{{ enquiry.body }}

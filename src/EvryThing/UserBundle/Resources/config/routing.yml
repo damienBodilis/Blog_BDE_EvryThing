@@ -1,0 +1,7 @@
+evry_thing_user_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EvryThingUserBundle:Default:index }
+
+evry_thing_user_login:
+    pattern: /login
+    defaults: { _controller: FOSUserBundle:Security:login }

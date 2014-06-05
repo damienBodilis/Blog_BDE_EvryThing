@@ -1,0 +1,16 @@
+#galerie{
+	padding : 10px;
+}
+.albums{
+	width : 150px;
+	height : 150px;
+	z-index : 1;
+}
+/*.titreAlbum{
+	z-index : 2;
+	background-color : rgb(72, 72, 75);
+	display : inline-block;
+	float : left;
+	width : 150px;
+	height : 50px;
+}*/

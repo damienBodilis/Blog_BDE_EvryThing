@@ -1,0 +1,80 @@
+{# src/EvryThing/BlogBundle/Resources/views/evry.html.twig #}
+	{%extends "::layout.html.twig"%}
+	{% block stylesheets %}
+		<link rel="stylesheet" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" href="{{ asset('bundles/evrythingblog/css/Evry.css') }}" type="text/css" media="all" />
+		{{ parent() }}
+	{% endblock %}
+	{%block title%}
+		{{parent()}}
+	{%endblock%}
+	{%block principal%}
+	<div id="principal">
+		<div id="titre">
+			<h1 class="titre1">IUP MÉTHODES INFORMATIQUES APPLIQUÉES À LA GESTION D'ENTREPRISE (MIAGE)</h1>
+		</div>
+		<div id="corp">
+			<h3 class="navOrange">Objectifs et Particularités de la formation</h3>
+			<p>La spécialité MIAGE est une spécialité professionnelle qui a pour objectif de préparer les étudiants à assurer les fonctions de cadres informaticiens dans un contexte où l’entreprise et son organisation effectue une mutation mportante due aux progrès des technologies de l'information. La formation vise à faire acquérir aux étudiants: une bonne compréhension du fonctionnement des entreprises, de leurs structures et de leurs impératifs stratégiques, une capacité à utiliser, maîtriser et intégrer les verses technologies et à comprendre les implications de ces nouvelles chnologies et des capacités de communications. Elle se décline en formation classique initiale et en apprentissage en partenariat avec le entre de Formation CFA-AFIA.</p>
+
+			<h3 class="navOrange">Diplômes délivrés</h3>
+			<ul>
+				<li><a href="/fr/formation/l_offre_de_formation/licence_mention_informatique/licence_mention_informatique_parcours_methodes_informatiques_appliquees_a_la_gestion_des_entreprises_miage.html">licence en Informatique « parcours » Méthodes Informatiques Appliquées à la Gestion d’Entreprise (MIAGE) </a></li>
+				<li><a href="/fr/formation/l_offre_de_formation/master_mention_informatique/master_mention_informatique_m1_m2_specialite_methodes_informatiques_appliquees_a_la_gestion_des_entreprises_miage.html">master en Informatique et Systèmes spécialité MIAGE</a></li>
+			</ul>
+			<h3 class="navOrange">Débouchés</h3>
+			<p>
+				Les étudiants pourront prétendre aux différentes carrières des métiers de informatique appliquée à la gestion d’entreprise :
+				<ul>
+					<li>Maîtrise d’ouvrage</li>
+					<li>Support et Assistance aux utilisateurs</li>
+					<li>Production et exploitation informatique</li>
+					<li>Etudes, développement et intégration</li>
+					<li>Support et assistance technique</li>
+					<li>Administration et gestion de la direction informatique</li>
+					<li>Responsable de la sécurité des systèmes d’information</li>
+					<li>Chef de projet e-administration</li>
+				</ul>
+			</p>
+			<h3 class="navOrange">Partenaires</h3>
+			<p>
+				Apprentissage : CFA-AFIA
+				Exemples d’entreprises ayant accueilli nos stagiaires et nos apprentis : XA, LCL,SNECMA, Grands Moulins de Paris, préfecture de Paris,CA, NRA, …
+			</p>
+			
+			<h3 class="navOrange">Organisation des études</h3>
+			<p>
+				La formation est organisée en trois années appelées L3, M1 et M2 qui représentent six semestres. Les deux premiers semestres, l’étudiant pourra choisir entre quatre parcours dans le domaine informatique, dont MIAGE. Les quatrième et cinquième semestres se composent d'un tronc commun obligatoire et d'options que l'étudiant choisit en fonction de son projet professionnel.
+				</br></br>
+				Le cinquième semestre l'étudiant choisit sa spécialité :
+				<ul>
+					<li>Ingénierie Logicielle pour le Web</li>
+				</ul>
+				Le sixième semestre est consacré à un stage d'une durée de 5 à 6 mois. A la suite de ce stage l'étudiant soutient son mémoire devant un jury.
+				</br></br>
+				Les étudiants pourront suivre la spécialité MIAGE en apprentissage. Dans ce cas, l'alternance proposée est de quatre semaines en entreprise et quatre semaines à l'Université en L3 et Master1. En Master2, après une période de quatre semaines à l'Université, l'alternance est de deux jours à l'Université et trois jours en Entreprise. La filière en apprentissage est gérée en collaboration avec le CFA AFIA.
+			</p>
+			<h3 class="navOrange">Contact universitaire</h3>
+			<h4 class="navBleu">Responsable du L3</h4>
+			<ul>
+				<li>Farida Zerahoui</li>
+			</ul>
+			
+			<h4 class="navBleu">Responsable du M1</h4>
+			<ul>
+				<li>Denis Dupont</li>
+				<li>Courriel : <a href="mailto:denis.dupont@ibisc.fr" target="_blank">denis.dupont@ibisc.fr</a></li>
+			</ul>
+			
+			<h4 class="navBleu">Responsable de la spécialité</h4>
+			<ul>
+				<li>Judith Benzakki</li>
+				<li>Tél : 01 69 47 74 50</li>
+				<li>Courriel : <a href="mailto:judith.benzakki@ibisc.univ-evry.fr" target="_blank">judith.benzakki@ibisc.univ-evry.fr</a></li>
+			</ul>
+		</div>
+	</div>
+	{%endblock%}
+	
+	
+	

@@ -1,0 +1,5 @@
+# src/EvryThing/BlogBundle/Resources/config/config.yml
+parameters:
+    # Contact email address
+    evry_thing_blog.emails.contact_email: theodore.corbeaux@gmail.com
+

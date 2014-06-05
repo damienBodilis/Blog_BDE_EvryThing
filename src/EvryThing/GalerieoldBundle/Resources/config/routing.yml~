@@ -1,0 +1,15 @@
+evry_thing_galerie_albums:
+    pattern:  /albums
+    defaults: { _controller: EvryThingGalerieBundle:Galerie:displayAlbums }
+
+evry_thing_galerie_carrousel:
+    pattern:  /carrousel/{album}
+    defaults: { _controller: EvryThingGalerieBundle:Galerie:displayCarrousel }
+
+evry_thing_galerie_upload:
+    pattern:  /upload
+    defaults: { _controller: EvryThingGalerieBundle:Galerie:upload }
+
+evry_thing_galerie_admin:
+    pattern:  /galerieAdmin
+    defaults: { _controller: EvryThingGalerieBundle:Galerie:admin }

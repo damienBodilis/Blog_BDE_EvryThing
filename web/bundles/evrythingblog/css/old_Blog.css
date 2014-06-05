@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+@media screen{
+#principal ul{
+	padding:0px;
+}
+.article{
+	display:block;
+	height:300px;
+	margin-left:2%;
+	margin-bottom:2%;
+	background-color:#ece8e5; 
+	word-wrap: break-word;
+}
+.article .artTitre{
+	margin-left:0px;
+	padding-top:0.1px;
+	width:100%;
+	height:45px;
+	background-color:#c3c3c3;
+	box-shadow: 0px 2px 4px #24303c;
+	border-style:outset;	
+	border-color:#c3c3c3;
+	border-width:0px;
+}
+.article .contenu{
+height :auto;
+	display:table; 
+	width:830px;
+	margin-bottom:10px;
+	background-color:#e6e6fa; 
+	padding-top: 1px;
+	padding-bottom: 2px;
+}
+.article.contenudur{
+height :auto;
+	float:left;
+	width:830px;
+	background-color:#ffffff;
+	text-align:center;
+	min-height:1200px;
+	
+}
+.grand .contenu img{
+	float:left;
+	max-width:200px;
+	max-height:200px;
+	margin-right:20px;
+}
+.petitG .contenu img,.petitD .contenu img{
+	float:left;
+	max-width:100px;
+	max-height:200px;
+	margin-right:20px;
+}
+.grand{
+	width:96%;
+}
+.petitG{	
+	float:left;
+	width:46%;
+	margin-right:2%;
+}
+.petitD{
+	float:left;
+	width:46%;
+}
+}

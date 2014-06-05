@@ -1,0 +1,21 @@
+{# src/EvryThing/GalerieBundle/Resources/views/layout.html.twig #}
+	{%extends "::layout.html.twig"%}
+	{% block stylesheets %}
+		{{ parent() }}
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythinggalerie/css/albums.css') }}" type="text/css" media="all" />
+	{% endblock %}
+	{%block title%}
+		{{parent()}}
+	{%endblock%}
+	{%block principal%}
+	<div id="principal">
+		<div id="galerie">
+			{% for album in albums %}
+				<a href="{{path('evry_thing_galerie_carrousel', {'album':album})}}"><img class="albums" src="{{ asset('bundles/evrythinggalerie/images/' ~ album ~ '/vitrine/919850_10201457092254208_1844789856_o.jpg') }}" alt="{{ album }}" /></a>
+				{#<span class="titreAlbum">{{ album }}</span>#}
+			{% else %}
+				<li>Pas (encore !) d'albums photo</li>
+			{% endfor %}
+		</div>
+	</div>
+	{%endblock%}
