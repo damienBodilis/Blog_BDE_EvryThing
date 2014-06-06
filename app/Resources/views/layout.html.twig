@@ -20,7 +20,7 @@
 			<div class="row">
 				
 					
-						<div class="col-md-10 col-md-offset-1">
+						<div id="haut" class="col-md-10 col-md-offset-1">
 							<header>
 					
 							</header>
@@ -43,25 +43,24 @@
 					<div class="navbar-collapse collapse">
 						<ul>
 							{% block navigation %}
-												<li class="active"><a href="{{path('evry_thing_blog_accueil', {'page':1})}}" class="navOrange">ACTUALIT&EacuteS</a></li>
-												<li class="active"><a href="{{path('evry_thing_blog_evry')}}" class="navBleu">MIAGE &EacuteVRY</a></li>
-												<li class="active"><a href="{{path('evry_thing_blog_bde')}}" class="navOrange">BDE</a></li>
-												<li class="active"><a href="index.html.twig" class="navBleu">MIAGE CONNEXION</a></li>
-												<li class="active"><a href="evry.html" class="navOrange">&EacuteV&EgraveNEMENTS</a></li>
-												<li class="active"><a href="{{path('evry_thing_galerie_albums')}}" class="navBleu">GALERIE</a></li>
-												<li class="active"><a href="index.html.twig" class="navOrange">DOCUMENTS</a></li>
-												<li class="active"><a href="evry.html" class="navBleu">ADH&EacuteSIONS</a></li>
-												<li class="active"><a href="bde.html" class="navOrange">ESPACE ANCIEN</a></li>
-												<li class="active"><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
-												<li class="active"><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>
-											{% endblock %}
-												<div id="blocklogin" class="navbar-form navbar-right" role="form">
-													{{ render(controller("FOSUserBundle:Security:login"))}}
-												</div>
+								<li class="active"><a href="{{path('evry_thing_blog_accueil', {'page':1})}}" class="navOrange">ACTUALIT&EacuteS</a></li>
+								<li class="active"><a href="{{path('evry_thing_blog_evry')}}" class="navBleu">MIAGE &EacuteVRY</a></li>
+								<li class="active"><a href="{{path('evry_thing_blog_bde')}}" class="navOrange">BDE</a></li>
+								<li class="active"><a href="index.html.twig" class="navBleu">MIAGE CONNEXION</a></li>
+								<li class="active"><a href="evry.html" class="navOrange">&EacuteV&EgraveNEMENTS</a></li>
+								<li class="active"><a href="{{path('evry_thing_galerie_albums')}}" class="navBleu">GALERIE</a></li>
+								<li class="active"><a href="index.html.twig" class="navOrange">DOCUMENTS</a></li>
+								<li class="active"><a href="evry.html" class="navBleu">ADH&EacuteSIONS</a></li>
+								<li class="active"><a href="bde.html" class="navOrange">ESPACE ANCIEN</a></li>
+								<li class="active"><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
+								<li class="active"><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>
+							{% endblock %}
+							<div id="blocklogin" class="navbar-form navbar-right" role="form">
+								<div id="blocklogin" class="navbar-form navbar-right" role="form">
+									{{ render(controller("FOSUserBundle:Security:login"))}}
+							</div>
 						</ul>					
-						
-					</div><!--/.nav-collapse -->
-					
+					</div>				
 				</div>
 			</div>		
 		<div class="row">
@@ -70,6 +69,7 @@
 				{%endblock%}
 			</div>
 		</div>
+	
 		<div id="footer" class="col-md-10 col-md-offset-1">
 			<div class="container">
 				<p id="partenaire">
