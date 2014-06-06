@@ -20,7 +20,7 @@
 			<div class="row">
 				
 					
-						<div class="col-md-10 col-md-offset-1">
+						<div id="haut" class="col-md-10 col-md-offset-1">
 							<header>
 					
 							</header>
@@ -55,7 +55,7 @@
 												<li class="active"><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
 												<li class="active"><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>
 											{% endblock %}
-											<form class="navbar-form navbar-right" role="form">
+												<form class="navbar-form navbar-right" role="form">
 												<div id="blocklogin">
 													{%block login%}
 													{{ render(controller("FOSUserBundle:Security:login"))}}
@@ -80,6 +80,7 @@
 				{%endblock%}
 			</div>
 		</div>
+	
 		<div id="footer" class="col-md-10 col-md-offset-1">
 			<div class="container">
 				<p id="partenaire">
