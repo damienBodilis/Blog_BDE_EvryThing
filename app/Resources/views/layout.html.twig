@@ -55,8 +55,15 @@
 												<li class="active"><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
 												<li class="active"><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>
 											{% endblock %}
+											<form class="navbar-form navbar-right" role="form">
+												<div id="blocklogin">
+													{%block login%}
+													{{ render(controller("FOSUserBundle:Security:login"))}}
+												</div>
+											</form>
 												
 						</ul>					
+						
 					</div><!--/.nav-collapse -->
 					
 				</div>
@@ -64,12 +71,7 @@
 				
 				
 			
-		<div class="row">
-			<div class="col-md-5 col-md-offset-7">
-				{%block login%}
-					{{ render(controller("FOSUserBundle:Security:login"))}}
-			</div>
-		</div>
+		
 		<div class="row">
 			<div id="centre">
 				{%block principal%}
@@ -78,16 +80,18 @@
 				{%endblock%}
 			</div>
 		</div>
-		<footer>
-			<p id="partenaire">
-				Partenaires : 
-				<img src="{{ asset('bundles/evrythingblog/images/logoUEVE.jpg') }}" alt="logo UEVE" />
-				<img src="{{ asset('bundles/evrythingblog/images/logoMiageCo.png') }}" alt="logo Miage Co" />
-				<img src="{{ asset('bundles/evrythingblog/images/logoMozilla.png') }}" alt="logo UEVE" />
-			</p>
-			<script src="{{ asset('bundles/evrythingblog/js/jquery-1.11.1.min.js') }}"></script>
-			<script src="{{ asset('bundles/evrythingblog/js/bootstrap.min.js') }}"></script>
-		</footer>
+		<div id="footer" class="col-md-10 col-md-offset-1">
+			<div class="container">
+				<p id="partenaire">
+					Partenaires : 
+					<img src="{{ asset('bundles/evrythingblog/images/logoUEVE.jpg') }}" alt="logo UEVE" />
+					<img src="{{ asset('bundles/evrythingblog/images/logoMiageCo.png') }}" alt="logo Miage Co" />
+					<img src="{{ asset('bundles/evrythingblog/images/logoMozilla.png') }}" alt="logo UEVE" />
+				</p>
+				<script src="{{ asset('bundles/evrythingblog/js/jquery-1.11.1.min.js') }}"></script>
+				<script src="{{ asset('bundles/evrythingblog/js/bootstrap.min.js') }}"></script>
+			</div>
+		</div>
     </div>
 </body>
 </html>

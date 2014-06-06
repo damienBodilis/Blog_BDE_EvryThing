@@ -9,11 +9,11 @@
 		{{parent()}}
 	{%endblock%}
 	{%block principal%}
-	<div id="principal">
+	<div id="principal"  class="col-md-12">
 		<ul>		
 			{% for article in articles %}
 				{% if loop.first %}
-				<li class="article grand">
+				<li class="article grand col-md-12">
 					<div class="artTitre">
 						<h1 class="titre1">{{ article.title }}</h1>
 					</div>
@@ -22,8 +22,8 @@
 						{{ article.accroche }}
 					</p>
 					<div class="contenudur">
-						<input id="boutonP{{ article.id }}" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
-						<input id="boutonM{{ article.id }}" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
+						<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
+						<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
 						<p class="contenudur" style="display:none;">
 							{{ article.contenu }}
 						</p>
@@ -41,7 +41,7 @@
 					</div>
 				</li>
 				{%elseif loop.index != 1 and loop.index <= 5%}
-					<li class="article petit">
+					<li class="article petit col-md-6">
 						<div class="artTitre">
 							<h1 class="titre1">{{ article.title }}</h1>
 						</div>
@@ -50,8 +50,8 @@
 							{{ article.accroche }}
 						</p>
 						<div class="contenudur">
-							<input id="boutonP{{ article.id }}" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
-							<input id="boutonM{{ article.id }}" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
+							<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
+							<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
                             <p class="contenudur" style="display:none;">
 								{{ article.contenu }}
 							</p>
@@ -69,7 +69,7 @@
 						</div>
 					</li>
 				{%elseif loop.index > 5%}
-					Page suivante
+				
 				{%endif%}
 			{% else %}
 				<!--<li>Pas (encore !) d'articles</li>-->

@@ -1,16 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
-
+@media screen{
 #principal ul{
 	padding:0px;
 }
 .article{
 	display:block;
 	height:300px;
-	margin-left:2%;
 	margin-bottom:2%;
 	background-color:#ece8e5; 
 	word-wrap: break-word;
+	border-style:outset;	
+	border-color:#c3c3c3;
 }
 .article .artTitre{
 	margin-left:0px;
@@ -31,7 +32,7 @@
 
 }
 .article.contenudur{
-	
+
 }
 .grand .contenu img{
 	float:left;
@@ -39,7 +40,7 @@
 	max-height:200px;
 	margin-right:20px;
 }
-.petitG .contenu img,.petitD .contenu img{
+.petit .contenu img{
 	float:left;
 	max-width:100px;
 	max-height:200px;
@@ -48,12 +49,27 @@
 .grand{
 	width:96%;
 }
-.petitG{	
+.petit{
 	float:left;
 	width:46%;
-	margin-right:2%;
+
 }
-.petitD{
-	float:left;
-	width:46%;
+.footer{
+
+}
+.commentaires{
+}
+.com{
+	display:none;
+	background-color:grey;
+	width:100%;
+	height:100px;
+	color : #e4e4e4;
+}
+.trait{
+	background-color:#e4e4e4;
+	border:2px;
+	border-style:groove;
+	width:100%;
+	height:1px;
 }

@@ -31,7 +31,7 @@ header{
 =======
 >>>>>>> f0069b6d3821394b0b92ab6c7a9286866be9ac93
 	align-content:center;
-	top:85px;
+	top:12%;
 }
 .navbar ul li{
 	display:inline-block;
@@ -58,8 +58,9 @@ header{
 #centre{
 	margin:auto;
 	width:80%;
-	height:30vw;
+	height:35vw;
 	background-color: rgba(221, 221, 221, 0.8);
+	margin-top:3%;
 }
 footer{
 	background: linear-gradient(#fff 0%, #cdcdcd 80%);
@@ -85,4 +86,13 @@ footer img{
 }
 a{
 	color : #00609F;
+}
+#footer{
+position: absolute;
+bottom: 0;
+height: 60px;
+background-color: #f5f5f5;
+}
+#footer img{
+	max-width: 50px;
 }
