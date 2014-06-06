@@ -11,7 +11,8 @@ class BlogType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('title', 'text');
-		$builder->add('blog', 'textarea');
+		$builder->add('accroche', 'textarea');
+		$builder->add('contenu', 'textarea');
 		$builder->add('image', 'file');
 		$builder->add('tags', 'choice', array('choices' => array('article' => 'Article', 'evenement' => 'Evenement'),
 				'multiple' => false,
@@ -21,8 +22,11 @@ class BlogType extends AbstractType
 		$builder->add('submit', 'submit');
 	}
 
+    /**
+     * @return string
+     */
     public function getName()
     {
-        return 'blog';
+        return 'evrything_blogbundle_blog';
     }
 }

@@ -66,27 +66,44 @@ class BlogController extends Controller
       //      throw new AccessDeniedException('This user does not have access to this section.');
     //   }
 
-       $request = $this->getRequest();
-
+       /*$request = $this->getRequest();
+		echo 'test';
        if($request->getMethod() == 'POST')
        {
+		echo 'test61';
           $form->bind($request);
 
-         if ($form->isValid()) 
-	 {
-           $blog->setAuthor($user->getUsername());
-           $blog->setCreated(new \DateTime('now'));
-           $blog->setUpdated(new \DateTime('now'));
-
-           $em = $this->getDoctrine()->getManager();
-           $em->persist($blog);
-           $em->flush();
+        if ($form->isValid()) 
+		{
+			echo 'test1';
+			$blog->upload();
+			echo 'test2';
+			$blog->setAuthor($user->getUsername());
+			$blog->setCreated(new \DateTime('now'));
+			$blog->setUpdated(new \DateTime('now'));
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($blog);
+			$em->flush();
          }
-
          return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
-       }
-
-           return $this->render('EvryThingBlogBundle:Blog:add.html.twig', array('form' => $form->createView()));
+       }*/
+	   
+	   /************* formulaire d'upload ****************/
+		$request = $this->get('request');
+		if ($request->getMethod() == 'POST') {
+			$form->bind($request);
+			if ($form->isValid()) {
+				$blog->upload();	
+				$blog->setAuthor($user->getUsername());
+				$blog->setCreated(new \DateTime('now'));
+				$blog->setUpdated(new \DateTime('now'));
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($blog);
+				$em->flush();
+				return $this->render('EvryThingBlogBundle:Blog:add.html.twig', array('form' => $form->createView()));
+			}
+		}
+          return $this->render('EvryThingBlogBundle:Blog:add.html.twig', array('form' => $form->createView()));
     }
 
     public function modifyAction($id)

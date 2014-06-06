@@ -55,28 +55,18 @@
 												<li class="active"><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
 												<li class="active"><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>
 											{% endblock %}
-											<form class="navbar-form navbar-right" role="form">
-												<div id="blocklogin">
-													{%block login%}
+												<div id="blocklogin" class="navbar-form navbar-right" role="form">
 													{{ render(controller("FOSUserBundle:Security:login"))}}
 												</div>
-											</form>
-												
 						</ul>					
 						
 					</div><!--/.nav-collapse -->
 					
 				</div>
-			</div>
-				
-				
-			
-		
+			</div>		
 		<div class="row">
 			<div id="centre">
 				{%block principal%}
-				{%endblock%}
-				
 				{%endblock%}
 			</div>
 		</div>

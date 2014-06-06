@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
@@ -66,6 +67,8 @@ class Blog
      * @ORM\Column(type="datetime")
      */
     protected $updated;
+	
+	private $file;
 
 	
 	public function __construct()
@@ -295,8 +298,16 @@ class Blog
 public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('title', new NotBlank());
-        $metadata->addPropertyConstraint('blog', new NotBlank());
+        $metadata->addPropertyConstraint('accroche', new NotBlank());
+        $metadata->addPropertyConstraint('contenu', new NotBlank());
     }
+public function getFile(){
+		return $this->file;
+	}
+	
+public function setFile(UploadedFile $file){
+		$this->file = $file;
+	}
 	
 public function upload()
 	{
@@ -312,7 +323,7 @@ public function upload()
 	}
 public function getUploadDir()
 	{
-		return $this->image;
+		return $this->image->getDate();
 	}
 
 protected function getUploadRootDir()
