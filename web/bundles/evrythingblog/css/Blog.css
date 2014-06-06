@@ -7,10 +7,11 @@
 .article{
 	display:block;
 	height:300px;
-	margin-left:2%;
 	margin-bottom:2%;
 	background-color:#ece8e5; 
 	word-wrap: break-word;
+	border-style:outset;	
+	border-color:#c3c3c3;
 }
 .article .artTitre{
 	margin-left:0px;
@@ -51,9 +52,10 @@
 .petit{
 	float:left;
 	width:46%;
+
 }
 .footer{
-	
+
 }
 .commentaires{
 }

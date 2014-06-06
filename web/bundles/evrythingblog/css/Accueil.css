@@ -3,17 +3,10 @@
 
 #principal{
 
-	height:30vw;
+	height:35vw;
 	overflow-y: scroll;
 	
 	position : relative;
-}
-#secondaire{
-
-
-position : relative;
-height : 30vw;
-	
 }
 #login{
 	position:absolute;
