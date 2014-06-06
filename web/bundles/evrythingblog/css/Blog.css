@@ -1,17 +1,16 @@
 @charset "utf-8";
 /* CSS Document */
-@media screen{
 #principal ul{
 	padding:0px;
 }
 .article{
 	display:block;
 	height:300px;
+	margin-left:2%;
 	margin-bottom:2%;
 	background-color:#ece8e5; 
-	word-wrap: break-word;
-	border-style:outset;	
-	border-color:#c3c3c3;
+	word-wrap: break-word; 
+	overflow-y:auto;
 }
 .article .artTitre{
 	margin-left:0px;
@@ -20,27 +19,21 @@
 	height:45px;
 	background-color:#c3c3c3;
 	box-shadow: 0px 2px 4px #24303c;
-	border-style:outset;	
+	border-style:outset;
 	border-color:#c3c3c3;
 	border-width:0px;
 }
 .article .contenu{
-
 	padding:15px;
 	padding-top:0px;
-	float : center;
-
-}
-.article.contenudur{
-
 }
 .grand .contenu img{
 	float:left;
-	max-width:200px;
-	max-height:200px;
+	max-width:300px;
+	max-height:500px;
 	margin-right:20px;
 }
-.petit .contenu img{
+.petitG .contenu img,.petitD .contenu img{
 	float:left;
 	max-width:100px;
 	max-height:200px;
@@ -49,27 +42,33 @@
 .grand{
 	width:96%;
 }
-.petit{
+.petitG{	
 	float:left;
 	width:46%;
+	margin-right:2%;
+}
+.petitD{
+	float:left;
+	width:46%;
+}
 
-}
-.footer{
+.date { margin-bottom: 20px; border-bottom: 1px solid #ccc; font-size: 24px; color: #666; line-height: 30px }
+.blog { margin-bottom: 20px; }
+.blog img { width: 190px; float: left; padding: 5px; border: 1px solid #ccc; margin: 0 10px 10px 0; }
+.blog .meta { clear: left; margin-bottom: 20px; }
+.blog .snippet p.continue { margin-bottom: 0; text-align: right; }
+.blog .meta { font-style: italic; font-size: 12px; color: #666; }
+.blog .meta p { margin-bottom: 5px; line-height: 1.2em; }
+.blog img.large { width: 300px; min-height: 165px; }
 
-}
-.commentaires{
-}
-.com{
-	display:none;
-	background-color:grey;
-	width:100%;
-	height:100px;
-	color : #e4e4e4;
-}
-.trait{
-	background-color:#e4e4e4;
-	border:2px;
-	border-style:groove;
-	width:100%;
-	height:1px;
-}
+
+.notice { text-align: center; padding: 10px; background: #DFF2BF; border: 1px solid; color: #4F8A10; margin-bottom: 10px; }
+form.evry_thing { font-size: 16px; }
+form.evry_thing div { clear: left; margin-bottom: 10px; }
+form.evry_thing label { float: left; margin-right: 10px; text-align: right; width: 100px; font-weight: bold; vertical-align: top; padding-top: 10px; }
+form.evry_thing input[type="text"],
+form.evry_thing input[type="email"]
+    { width: 500px; line-height: 26px; font-size: 20px; min-height: 26px; }
+form.evry_thing textarea { width: 500px; height: 150px; line-height: 26px; font-size: 20px; }
+form.evry_thing input[type="submit"] { margin-left: 110px; width: 508px; line-height: 26px; font-size: 20px; min-height: 26px; }
+form.evry_thing ul li { color: #ff0000; margin-bottom: 5px; }

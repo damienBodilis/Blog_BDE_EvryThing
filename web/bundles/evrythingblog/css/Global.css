@@ -7,42 +7,33 @@ body{
 	padding:0px;
 	border:0px;
 	background-color:#fff;
-	/*background-image:url("../images/background.jpg");*/
-	background-image:radial-gradient(white, black);
+	background-image:url("../images/background.jpg");
 	background-attachment:fixed;
 	background-repeat:no-repeat;
 	background-position:center; 
 }
-#haut
-{
-	top:0;
-}
 #background{
 	position:relative;
-	height:20vh;
 }
 header{
-	margin:auto;
-	width:81vw;	
-	height:16vh;
+	position:absolute;
+	left:10%;
+	width:80%;	
+	height:135px;
 	background-image:url("../images/header.jpg");
 	background-position:center;
-	background-repeat:repeat-x;
 }
-.navbar{
+nav{
 	position:absolute;
-<<<<<<< HEAD
-
-=======
->>>>>>> f0069b6d3821394b0b92ab6c7a9286866be9ac93
+	width:100%;
 	align-content:center;
-	top:12%;
-background-image:linear-gradient(white, grey);
+	top:85px;
+	height:5%;
 }
-.navbar ul li{
+nav ul li{
 	display:inline-block;
-	margin-left:1%;
-	margin-right:1%;
+	margin-left:10px;
+	margin-right:10px;
 	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 	font-size:medium;
 	font-weight:bold;	
@@ -53,35 +44,29 @@ background-image:linear-gradient(white, grey);
 .navBleu{
 	color:#38618d;	
 }
-.navbar ul li a{
+nav ul li a{
 	text-decoration:none;
 	text-shadow: 0px 8px 5px #909090; 	
-	font-size: 12px;
 }
-.navbar ul li a:onhover{
+nav ul li a:onhover{
 	/*transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);  */
 }
-#centre{
-	margin:auto;
+/*#centre{
+	position:relative;
+	left:10%;
+	top:135px;
 	width:80%;
-	height:36vw;
+	height:500px;
 	background-color: rgba(221, 221, 221, 0.8);
-	margin-top:2%;
-	padding : 20px;
-	padding-left:10px;
-	padding-right:10px;
-}
-footer{
+}*/
+/*footer{
 	background: linear-gradient(#fff 0%, #cdcdcd 80%);
-	margin:auto;
+	position:absolute;
+	left:10%;
+	bottom:0px;
 	width:80%;
 	height:75px;
-	bottom:0;
-	position : fixed;
-}
-footer img{
-	max-width: 50px;
-}
+}*/
 
 /****************************** CSS Font/Titre/Décoration ***********************/
 .titre1{
@@ -92,18 +77,4 @@ footer img{
 	text-shadow: 0px 8px 5px #909090;
 	margin-left:15px;
 	text-transform:uppercase;
-}
-a{
-	color : #00609F;
-}
-#footer{
-position: absolute;
-bottom: 0;
-height: 60px;
-background-color: #f5f5f5;
-
-background-image:linear-gradient(grey, white);
-}
-#footer img{
-	max-width: 50px;
 }

@@ -1,19 +1,16 @@
 @charset "utf-8";
 /* CSS Document */
-
 #principal{
-
-	height:35vw;
+	width: 71%;
+	height:500px;
 	overflow-y: scroll;
-	
-	position : relative;
 }
 #login{
 	position:absolute;
 	top:20px;
-	left:2%;
+	left:75%;
 	height:150px;
-	width:90%;
+	width:25%;
 	background-color:#c3c3c3;
 }
 #separator{

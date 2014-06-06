@@ -1,2 +1,0 @@
-php composer.phar update friendsofsymfony/user-bundle
-php composer.phar update

@@ -26,13 +26,24 @@ class BlogController extends Controller
 		  throw $this->createNotFoundException('Page inexistante (page = '.$page.')');
 		}
 
-		// On récupère le repository
+		/*// On récupère le repository
 	  $repository = $this->getDoctrine()
 						 ->getManager()
 						 ->getRepository('EvryThingBlogBundle:Blog');
 
 	  // On récupère tout les champs de l'entité 
-	  $articles = $repository->findAll();
+	  $articles = $repository->findAll();*/
+	  
+    $em = $this->get('doctrine.orm.entity_manager');
+    $dql = "SELECT a FROM EvryThingBlogBundle:Blog a";
+    $query = $em->createQuery($dql);
+
+    $paginator  = $this->get('knp_paginator');
+    $articles = $paginator->paginate(
+        $query,
+        $this->get('request')->query->get('page', 1)/*page number*/,
+        10/*limit per page*/
+    );
 
 	  // $article est donc une instance de EvryThing\BlogBundle\Entity\Article
 		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles));

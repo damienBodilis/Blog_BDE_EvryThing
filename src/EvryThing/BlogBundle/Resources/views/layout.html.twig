@@ -9,6 +9,9 @@
 		{{parent()}}
 	{%endblock%}
 	{%block principal%}
+	<div class="count">
+		{{ articles.getTotalItemCount }}
+	</div>
 	<div id="principal"  class="col-md-12">
 		<ul>		
 			{% for article in articles %}
@@ -74,7 +77,10 @@
 			{% else %}
 				<!--<li>Pas (encore !) d'articles</li>-->
 			{% endfor %}
-		</ul>	
+		</ul>
+		<div class="navigation">
+			{{ knp_pagination_render(articles) }}
+		</div>
 	</div>
 	<script>
 		function derouler(id) {
