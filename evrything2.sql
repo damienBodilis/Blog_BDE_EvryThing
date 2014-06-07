@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 05 Juin 2014 à 22:19
+-- Généré le: Sam 07 Juin 2014 à 17:02
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS `blog` (
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `author` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `accroche` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `tags` longtext COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `updated` datetime NOT NULL,
   `contenu` longtext COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=66 ;
 
 --
 -- Contenu de la table `blog`
@@ -48,12 +48,15 @@ CREATE TABLE IF NOT EXISTS `blog` (
 INSERT INTO `blog` (`id`, `title`, `author`, `accroche`, `image`, `tags`, `created`, `updated`, `contenu`) VALUES
 (1, 'test', 'theo', 'What about this blog', 'xxx/yyy/zzz.jpg', 'Info', '0000-00-00 00:00:00', '2014-05-29 14:59:47', 'Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1Test 1'),
 (3, 'Encore un test!', 'moi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tellus mauris, ullamcorper ac turpis ac, tempor congue lorem. Suspendisse odio erat, hendrerit et auctor in, pharetra sit amet erat. Praesent imperdiet leo in odio sagittis, rutrum sollicitudin tortor porttitor. Quisque ac metus sodales, sagittis diam eget, ', 'bundles/yop', 'Event', '2014-05-26 22:12:51', '2014-05-26 22:12:51', 'Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2TTest2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2est2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2'),
-(4, 'Test 4', 'theo', 'Encore un n-ième test sur l''ajout de d''article', 'Nevermind', 'Event', '2014-05-29 11:22:26', '2014-05-29 13:21:40', 'Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3'),
-(5, 'Test 5', 'theo', 'Encore un n-ième test sur l''ajout de d''article', 'Nevermind', 'Event', '2014-05-29 11:31:59', '2014-05-29 11:31:59', ''),
 (7, 'Youhou', 'damien', 'aqzsedrftg', 'qwerty', 'Event', '2014-05-30 12:48:41', '2014-05-30 12:48:41', ''),
 (8, 'Test', 'theo', 'ceci est un test', '', '1', '2014-06-05 11:46:12', '2014-06-05 11:46:12', ''),
-(9, 'Test2', 'theo', 'ceci est un test', '', 'evenement', '2014-06-05 11:47:28', '2014-06-05 11:47:28', ''),
-(10, 'Test2', 'theo', 'ceci est un test', '', 'article', '2014-06-05 12:00:32', '2014-06-05 12:00:32', '');
+(57, 'test502', 'theo', 'test502', 'C:\\wamp\\tmp\\php7E15.', 'article', '2014-06-07 16:17:24', '2014-06-07 16:17:24', 'test502'),
+(58, 'test502', 'theo', 'test502', 'C:\\wamp\\tmp\\php537F.tmp', 'article', '2014-06-07 16:23:46', '2014-06-07 16:23:46', 'test502'),
+(59, 'test502', 'theo', 'test502', 'C:\\wamp\\tmp\\phpE7E9.tmp', 'article', '2014-06-07 16:33:09', '2014-06-07 16:33:09', 'test502'),
+(60, 'test503', 'theo', 'test503', 'C:\\wamp\\tmp\\php3C54.tmp', 'article', '2014-06-07 16:33:30', '2014-06-07 16:33:30', 'test503'),
+(61, 'test503', 'theo', 'test503', 'C:\\wamp\\tmp\\phpE5B4.tmp', 'article', '2014-06-07 16:34:14', '2014-06-07 16:34:14', 'test503'),
+(64, 'test504', 'theo', 'test504', '16814.jpg', 'article', '2014-06-07 16:41:32', '2014-06-07 16:41:32', 'test504'),
+(65, 'test504', 'theo', 'test504', 'bundles/evrythingblog/images/16814.jpg', 'article', '2014-06-07 16:43:01', '2014-06-07 16:43:01', 'test504');
 
 -- --------------------------------------------------------
 
@@ -69,14 +72,15 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_E16CE76B7294869C` (`blog_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id`, `blog_id`, `auteur`, `contenu`, `date`) VALUES
-(1, 3, 'theo', 'ceci est un commentaire', '2014-06-04 00:00:00');
+(1, 3, 'theo', 'ceci est un commentaire', '2014-06-04 00:00:00'),
+(2, 3, 'theo', '2eme commentaire', '2014-06-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,14 @@ CREATE TABLE IF NOT EXISTS `document` (
   `url` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `document`
+--
+
+INSERT INTO `document` (`id`, `nom`, `url`, `description`) VALUES
+(1, 'photo1', '15927.jpg', 'photo1');
 
 -- --------------------------------------------------------
 
@@ -126,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `fos_user` (
 --
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`) VALUES
-(1, 'theo', 'theo', 'theodore.corbeaux@gmail.com', 'theodore.corbeaux@gmail.com', 1, 'qf7utulfxbkss4cokgcko00o04wwc4o', 'QGHSN4YzrynwAZiR0ej7+BK4XTnzOBxnjOSFZeNw+3V6y8h7HdvShXkmsGaKF73pc4MzDh/bZKIs6s1CzevcbA==', '2014-06-05 11:45:43', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL),
+(1, 'theo', 'theo', 'theodore.corbeaux@gmail.com', 'theodore.corbeaux@gmail.com', 1, 'qf7utulfxbkss4cokgcko00o04wwc4o', 'QGHSN4YzrynwAZiR0ej7+BK4XTnzOBxnjOSFZeNw+3V6y8h7HdvShXkmsGaKF73pc4MzDh/bZKIs6s1CzevcbA==', '2014-06-06 20:24:47', 0, 0, NULL, NULL, NULL, 'a:1:{i:0;s:16:"ROLE_SUPER_ADMIN";}', 0, NULL),
 (2, 'damien', 'damien', 'damien.bodilis@gmail.com', 'damien.bodilis@gmail.com', 1, 'iz3pjslg9lc8gkkwwcc0wowsgwokok', 'O+ZKVz7Ruuo4SyiSUlp+S+kooLbSSZ12JTl6t4hFJKL+SHFB0LkvdNerXWYDNiOF2lLLU+iXvzJ4p4VmEVmeCg==', '2014-05-30 12:47:44', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL);
 
 --
