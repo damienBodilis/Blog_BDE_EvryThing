@@ -308,7 +308,7 @@ public function upload()
 
 		// On déplace le fichier envoyé dans le répertoire de notre choix
 		$this->image->move($this->getUploadRootDir(), $name);
-		$this->image = 'bundles/evrythingblog/images/'.$name;
+		$this->image = 'bundles/evrythingblog/images/articles'.$name;
 	}
 public function getUploadDir()
 	{
@@ -318,6 +318,6 @@ public function getUploadDir()
 protected function getUploadRootDir()
 	{
 		// On retourne le chemin relatif vers l'image pour notre code PHP
-		return __DIR__.'/../../../../web/bundles/evrythingblog/images/';
+		return __DIR__.'/../../../../web/bundles/evrythingblog/images/articles/';
 	}
 }

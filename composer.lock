@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "603c86e9ef51a999ce7355eb90534854",
+    "hash": "cc20b21ae06d5bec46cfac25b44e2a49",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1528,7 +1528,7 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.6.0",
+            "version": "dev-master",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
@@ -1874,6 +1874,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "symfony/monolog-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/data-fixtures": 20,
         "friendsofsymfony/user-bundle": 20

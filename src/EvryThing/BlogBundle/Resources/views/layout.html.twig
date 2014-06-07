@@ -32,9 +32,13 @@
 						par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
 					</div>
 					<div class="com">
-						<div class="commentaires{{ article.id }}">
+						<div class="commentaires{{ article.id }}" style="padding:3px;">
 							{% for commentaire in article.commentaires %}
-								{{ commentaire.contenu }}
+								<div>{{ commentaire.contenu }}</div>
+								<div class="comFooter">
+									{{ commentaire.auteur }}
+									{{ commentaire.date|date('d/m/Y') }}
+								</div>
 								<div class="trait"></div>
 							{% endfor %}
 						</div>
@@ -69,6 +73,10 @@
 									</div>
 									<div class="trait"></div>
 								{% endfor %}
+								<form method="post" {{ form_enctype(form) }}>
+									{{ form_row(form.contenu) }}
+									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+								</form>								
 							</div>
 						</div>
 					</li>				

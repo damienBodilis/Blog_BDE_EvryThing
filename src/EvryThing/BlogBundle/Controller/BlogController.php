@@ -9,6 +9,8 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use EvryThing\BlogBundle\Entity\Blog;
 use EvryThing\BlogBundle\Form\BlogType;
 use EvryThing\UserBundle\Entity\User;
+use EvryThing\BlogBundle\Entity\Commentaire;
+use EvryThing\BlogBundle\Form\CommentaireType;
 
 /**
  * Blog controller.
@@ -41,8 +43,27 @@ class BlogController extends Controller
 		$paginator  = $this->get('knp_paginator');
 		$articles = $paginator->paginate($query,$this->get('request')->query->get('page', $page), 5);
 
-	  // $article est donc une instance de EvryThing\BlogBundle\Entity\Article
-		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles));
+		
+		/******************* formulaire ***************/
+		$commentaire = new Commentaire();
+		$form = $this->createForm(new CommentaireType(), $commentaire);
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		$request = $this->getRequest();
+		if($request->getMethod() == 'POST'){
+			$form->bind($request);
+			if ($form->isValid()){	
+				$commentaire->setAuteur($user->getUsername());
+				$commentaire->setDate(new \DateTime('now'));
+				$repository = $this->getDoctrine()->getManager()->getRepository('EvryThingBlogBundle:Blog');
+				$blog = $repository->find($_POST['blog']);
+				$commentaire->setBlog($blog);
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($commentaire);
+				$em->flush();
+				return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
+			}
+		}		
+		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles, 'form' => $form->createView()));
 	}
   
     /**
