@@ -43,7 +43,7 @@ class Blog
     protected $contenu;
 	
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=1000)
      */
     protected $image;
 
@@ -66,7 +66,6 @@ class Blog
      * @ORM\Column(type="datetime")
      */
     protected $updated;
-
 	
 	public function __construct()
 	{
@@ -301,23 +300,24 @@ public static function loadValidatorMetadata(ClassMetadata $metadata)
 public function upload()
 	{
 		// Si jamais il n'y a pas de fichier (champ facultatif)
-		if (null === $this->file) {
+		if (null === $this->image) {
 		  return;
 		}
 		// On garde le nom original du fichier de l'internaute
-		$name = $this->file->getClientOriginalName();
+		$name = $this->image->getClientOriginalName();
 
 		// On déplace le fichier envoyé dans le répertoire de notre choix
-		$this->file->move($this->getUploadRootDir(), $name);
+		$this->image->move($this->getUploadRootDir(), $name);
+		$this->image = 'bundles/evrythingblog/images/'.$name;
 	}
 public function getUploadDir()
 	{
-		return $this->image;
+		return '/articles';
 	}
 
 protected function getUploadRootDir()
 	{
 		// On retourne le chemin relatif vers l'image pour notre code PHP
-		return __DIR__.'/../../../../web/bundles/evrythingblog/images/'.$this->getUploadDir();
+		return __DIR__.'/../../../../web/bundles/evrythingblog/images/';
 	}
 }

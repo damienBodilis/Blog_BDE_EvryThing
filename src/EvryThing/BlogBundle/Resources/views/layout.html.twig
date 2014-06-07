@@ -34,13 +34,13 @@
 					<div class="com">
 						<div class="commentaires{{ article.id }}">
 							{% for commentaire in article.commentaires %}
+								{{ commentaire.contenu }}
 								<div class="trait"></div>
-									{{ commentaire.contenu }}
 							{% endfor %}
 						</div>
 					</div>
 				</li>
-				{%elseif loop.index != 1 and loop.index <= 5%}
+				{%elseif loop.index != 1%}
 					<li class="article petit col-md-6">
 						<div class="artTitre">
 							<h1 class="titre1">{{ article.title }}</h1>
@@ -60,21 +60,27 @@
 							par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
 						</div>
 						<div class="com">
-							<div class="commentaires{{ article.id }}">
+							<div class="commentaires{{ article.id }}" style="padding:3px;">
 								{% for commentaire in article.commentaires %}
+									<div>{{ commentaire.contenu }}</div>
+									<div class="comFooter">
+										{{ commentaire.auteur }}
+										{{ commentaire.date|date('d/m/Y') }}
+									</div>
 									<div class="trait"></div>
-										{{ commentaire.contenu }}
 								{% endfor %}
 							</div>
 						</div>
-					</li>
-				{%elseif loop.index > 5%}
-				
+					</li>				
 				{%endif%}
+			</tr>
 			{% else %}
 				<!--<li>Pas (encore !) d'articles</li>-->
 			{% endfor %}
 		</ul>	
+		<div class="navigation">
+			{{ knp_pagination_render(articles) }}
+		</div>
 	</div>
 	<script>
 		function derouler(id) {

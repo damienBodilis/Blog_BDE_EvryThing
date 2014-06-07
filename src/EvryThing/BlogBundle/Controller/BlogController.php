@@ -27,12 +27,19 @@ class BlogController extends Controller
 		}
 
 		// On récupère le repository
-	  $repository = $this->getDoctrine()
+	 /* $repository = $this->getDoctrine()
 						 ->getManager()
 						 ->getRepository('EvryThingBlogBundle:Blog');
 
 	  // On récupère tout les champs de l'entité 
-	  $articles = $repository->findAll();
+	  $articles = $repository->findAll();*/
+	  
+	    $em    = $this->get('doctrine.orm.entity_manager');
+		$dql   = "SELECT a FROM EvryThingBlogBundle:Blog a";
+		$query = $em->createQuery($dql);
+
+		$paginator  = $this->get('knp_paginator');
+		$articles = $paginator->paginate($query,$this->get('request')->query->get('page', $page), 5);
 
 	  // $article est donc une instance de EvryThing\BlogBundle\Entity\Article
 		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles));
@@ -57,36 +64,24 @@ class BlogController extends Controller
 
     public function addAction()
     {
-       $blog = new Blog();
-       $form = $this->createForm(new BlogType(), $blog);
-
-       $user = $this->container->get('security.context')->getToken()->getUser();
-       //if (!($user->getRoles() == 'ROLE_SUPER_ADMIN')) 
-       //{
-      //      throw new AccessDeniedException('This user does not have access to this section.');
-    //   }
-
-       $request = $this->getRequest();
-
-       if($request->getMethod() == 'POST')
-       {
-          $form->bind($request);
-
-         if ($form->isValid()) 
-	 {
-           $blog->setAuthor($user->getUsername());
-           $blog->setCreated(new \DateTime('now'));
-           $blog->setUpdated(new \DateTime('now'));
-
-           $em = $this->getDoctrine()->getManager();
-           $em->persist($blog);
-           $em->flush();
-         }
-
-         return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
-       }
-
-           return $this->render('EvryThingBlogBundle:Blog:add.html.twig', array('form' => $form->createView()));
+		$blog = new Blog();
+		$form = $this->createForm(new BlogType(), $blog);
+		$user = $this->container->get('security.context')->getToken()->getUser();
+		$request = $this->getRequest();
+		if($request->getMethod() == 'POST'){
+			$form->bind($request);
+			if ($form->isValid()){	
+				$blog->upload();
+				$blog->setAuthor($user->getUsername());
+				$blog->setCreated(new \DateTime('now'));
+				$blog->setUpdated(new \DateTime('now'));
+				$em = $this->getDoctrine()->getManager();
+				$em->persist($blog);
+				$em->flush();
+				return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
+			}
+		}
+		return $this->render('EvryThingBlogBundle:Blog:add.html.twig', array('form' => $form->createView()));
     }
 
     public function modifyAction($id)

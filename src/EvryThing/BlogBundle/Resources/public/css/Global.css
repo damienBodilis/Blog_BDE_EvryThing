@@ -7,33 +7,42 @@ body{
 	padding:0px;
 	border:0px;
 	background-color:#fff;
-	background-image:url("../images/background.jpg");
+	/*background-image:url("../images/background.jpg");*/
+	background-image:radial-gradient(white, black);
 	background-attachment:fixed;
 	background-repeat:no-repeat;
 	background-position:center; 
 }
+#haut
+{
+	top:0;
+}
 #background{
 	position:relative;
+	height:20vh;
 }
 header{
-	position:absolute;
-	left:10%;
-	width:80%;	
-	height:135px;
+	margin:auto;
+	width:81vw;	
+	height:16vh;
 	background-image:url("../images/header.jpg");
 	background-position:center;
+	background-repeat:repeat-x;
 }
-nav{
+.navbar{
 	position:absolute;
-	width:100%;
+<<<<<<< HEAD
+
+=======
+>>>>>>> f0069b6d3821394b0b92ab6c7a9286866be9ac93
 	align-content:center;
-	top:85px;
-	height:5%;
+	top:12%;
+background-image:linear-gradient(white, grey);
 }
-nav ul li{
+.navbar ul li{
 	display:inline-block;
-	margin-left:10px;
-	margin-right:10px;
+	margin-left:1%;
+	margin-right:1%;
 	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 	font-size:medium;
 	font-weight:bold;	
@@ -44,29 +53,35 @@ nav ul li{
 .navBleu{
 	color:#38618d;	
 }
-nav ul li a{
+.navbar ul li a{
 	text-decoration:none;
 	text-shadow: 0px 8px 5px #909090; 	
+	font-size: 12px;
 }
-nav ul li a:onhover{
+.navbar ul li a:onhover{
 	/*transition: top 1.4s cubic-bezier(.49,.22,.52,1.35);  */
 }
-/*#centre{
-	position:relative;
-	left:10%;
-	top:135px;
+#centre{
+	margin:auto;
 	width:80%;
-	height:500px;
+	height:36vw;
 	background-color: rgba(221, 221, 221, 0.8);
-}*/
-/*footer{
+	margin-top:2%;
+	padding : 20px;
+	padding-left:10px;
+	padding-right:10px;
+}
+footer{
 	background: linear-gradient(#fff 0%, #cdcdcd 80%);
-	position:absolute;
-	left:10%;
-	bottom:0px;
+	margin:auto;
 	width:80%;
 	height:75px;
-}*/
+	bottom:0;
+	position : fixed;
+}
+footer img{
+	max-width: 50px;
+}
 
 /****************************** CSS Font/Titre/Décoration ***********************/
 .titre1{
@@ -77,4 +92,18 @@ nav ul li a:onhover{
 	text-shadow: 0px 8px 5px #909090;
 	margin-left:15px;
 	text-transform:uppercase;
+}
+a{
+	color : #00609F;
+}
+#footer{
+position: absolute;
+bottom: 0;
+height: 60px;
+background-color: #f5f5f5;
+
+background-image:linear-gradient(grey, white);
+}
+#footer img{
+	max-width: 50px;
 }

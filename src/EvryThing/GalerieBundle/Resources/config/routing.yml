@@ -11,5 +11,5 @@ evry_thing_galerie_upload:
     defaults: { _controller: EvryThingGalerieBundle:Galerie:upload }
 
 evry_thing_galerie_admin:
-    pattern:  /galerieAdmin
+    pattern:  /admin
     defaults: { _controller: EvryThingGalerieBundle:Galerie:admin }
