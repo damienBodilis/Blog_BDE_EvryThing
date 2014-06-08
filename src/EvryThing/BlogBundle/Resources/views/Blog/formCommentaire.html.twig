@@ -1,3 +1,5 @@
-<form method="post" {{ form_enctype(form) }}>
+<form method="post" action="{{path('evry_thing_blog_formCommentaire')}}" {{ form_enctype(form) }}>
 	{{ form_row(form.contenu) }}
+	{{ form_errors(form) }}
 	{{ form_row(form.submit) }}
+	{{ form_rest(form) }}

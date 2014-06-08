@@ -12,6 +12,12 @@ evry_thing_blog_admin:
     pattern: /admin
     defaults: { _controller: EvryThingBlogBundle:Blog:admin }
 
+evry_thing_blog_evenement:
+    pattern:  /evenement/{page}
+    defaults : { _controller: EvryThingBlogBundle:Blog:evenement }
+    requirements:
+        page: \d*
+
 evry_thing_blog_show:
     pattern:  /article/{id}
     defaults: { _controller: EvryThingBlogBundle:Blog:show }

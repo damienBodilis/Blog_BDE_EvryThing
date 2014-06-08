@@ -308,11 +308,11 @@ public function upload()
 
 		// On déplace le fichier envoyé dans le répertoire de notre choix
 		$this->image->move($this->getUploadRootDir(), $name);
-		$this->image = 'bundles/evrythingblog/images/articles'.$name;
+		$this->image = 'bundles/evrythingblog/images/articles/'.$name;
 	}
 public function getUploadDir()
 	{
-		return '/articles';
+		return '/articles/';
 	}
 
 protected function getUploadRootDir()

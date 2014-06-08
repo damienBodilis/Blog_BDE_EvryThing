@@ -37,15 +37,36 @@ class BlogController extends Controller
 	  $articles = $repository->findAll();*/
 	  
 	    $em    = $this->get('doctrine.orm.entity_manager');
-		$dql   = "SELECT a FROM EvryThingBlogBundle:Blog a";
+		$dql   = "SELECT a FROM EvryThingBlogBundle:Blog a where a.tags = 'article'";
 		$query = $em->createQuery($dql);
 
 		$paginator  = $this->get('knp_paginator');
 		$articles = $paginator->paginate($query,$this->get('request')->query->get('page', $page), 5);
-
-			
+		
 		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles));
 	}
+	
+    public function evenementAction($page)
+	{
+		// On ne sait pas combien de pages il y a
+		// Mais on sait qu'une page doit être supérieure ou égale à 1
+		if( $page < 1 )
+		{
+		  // On déclenche une exception NotFoundHttpException
+		  // Cela va afficher la page d'erreur 404 (on pourra personnaliser cette page plus tard d'ailleurs)
+		  throw $this->createNotFoundException('Page inexistante (page = '.$page.')');
+		}
+	  
+	    $em    = $this->get('doctrine.orm.entity_manager');
+		$dql   = "SELECT a FROM EvryThingBlogBundle:Blog a where a.tags = 'evenement'";
+		$query = $em->createQuery($dql);
+
+		$paginator  = $this->get('knp_paginator');
+		$articles = $paginator->paginate($query,$this->get('request')->query->get('page', $page), 5);
+		
+		return $this->render('EvryThingBlogBundle:Evenement:evenement.html.twig', array('articles' => $articles));
+	}
+	
 	public function renderCommentaireAction()
 	{
 		$commentaire = new Commentaire();
@@ -63,7 +84,10 @@ class BlogController extends Controller
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($commentaire);
 				$em->flush();
-				return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
+				if($blog->getTags() == 'evenement')
+					return $this->forward('EvryThingBlogBundle:Blog:evenement', array('page'  => 1));
+				else
+					return $this->forward('EvryThingBlogBundle:Blog:Accueil', array('page'  => 1));
 			}
 		}		
 		return $this->render('EvryThingBlogBundle:Blog:formCommentaire.html.twig', array('form' => $form->createView()));

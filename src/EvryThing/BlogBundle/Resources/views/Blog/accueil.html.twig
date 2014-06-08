@@ -40,7 +40,10 @@
 									{{ commentaire.date|date('d/m/Y') }}
 								</div>
 								<div class="trait"></div>
-							{% endfor %}
+								{% endfor %}
+								{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
+									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+								</form>		
 						</div>
 					</div>
 				</li>
@@ -101,7 +104,6 @@
 			document.getElementById('boutonP'+id).style.display='none';
 			coms = document.getElementsByClassName('commentaires'+id);
 			coms[0].parentNode.style.display = 'block';
-			//coms[0].lastElementChild.style.display = 'none';
 		}
 
 		function enrouler(id){
@@ -114,14 +116,6 @@
 			buttonplus.style.display='block';
 			coms = document.getElementsByClassName('commentaires'+id);
 			coms[0].parentNode.style.display = 'none';
-			//coms[0].parentNode.style.webkitTransitionDuration = "2s";
-		}
-		function createFormulaire(){
-			maDiv = document.createElement("form");
-			maDiv.method = 'post';
-			maDiv.className = 'nouvelle';
-			maDiv.innerHTML = document.getElementById('zonetxt').value;
-			document.getElementById("cadre").appendChild(maDiv);
 		}
 	</script>
 	{%endblock%}

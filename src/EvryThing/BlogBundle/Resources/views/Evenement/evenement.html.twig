@@ -1,4 +1,4 @@
-{# src/EvryThing/BlogBundle/Resources/views/Blog/evenement.html.twig #}
+{# src/EvryThing/BlogBundle/Resources/views/Blog/accueil.html.twig #}
 	{%extends "::layout.html.twig"%}
 	{% block stylesheets %}
 		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
@@ -40,12 +40,10 @@
 									{{ commentaire.date|date('d/m/Y') }}
 								</div>
 								<div class="trait"></div>
-							{% endfor %}
-							<form method="post" {{ form_enctype(form) }}>
-								{{ form_row(form.contenu) }}
-								<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
-								{{ form_row(form.input) }}
-							</form>			
+								{% endfor %}
+								{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
+									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+								</form>		
 						</div>
 					</div>
 				</li>
@@ -78,11 +76,9 @@
 									</div>
 									<div class="trait"></div>
 								{% endfor %}
-								<form method="post" {{ form_enctype(form) }}>
-									{{ form_row(form.contenu) }}
+									{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
 									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
-									{{ form_row(form.input) }}
-								</form>								
+								</form>										
 							</div>
 						</div>
 					</li>				
@@ -120,7 +116,6 @@
 			buttonplus.style.display='block';
 			coms = document.getElementsByClassName('commentaires'+id);
 			coms[0].parentNode.style.display = 'none';
-			//coms[0].parentNode.style.webkitTransitionDuration = "2s";
 		}
 	</script>
 	{%endblock%}
