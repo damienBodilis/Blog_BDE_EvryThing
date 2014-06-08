@@ -27,7 +27,7 @@
 						</div>
 			</div>	
 					
-					<div class="navbar navbar-default navbar-fixed-top col-md-10 col-md-offset-1" role="navigation">
+			<div id="menuflotant" class="navbar navbar-default col-md-10 col-md-offset-1 navbar-fixed-top" role="navigation">
 				<div class="container">
 				
 					<div class="navbar-header">
@@ -78,6 +78,21 @@
 				</p>
 				<script src="{{ asset('bundles/evrythingblog/js/jquery-1.11.1.min.js') }}"></script>
 				<script src="{{ asset('bundles/evrythingblog/js/bootstrap.min.js') }}"></script>
+				<script type="text/javascript">
+
+		var positionElementInPage = $('#menuflotant').offset().top;
+		$(window).scroll(
+			function() {
+				if ($(window).scrollTop() >= positionElementInPage) {
+
+					$('#menuflotant').addClass("floatable");
+				} else {
+
+					$('#menuflotant').removeClass("floatable");
+				}
+			}
+		);
+	</script>
 			</div>
 		</div>
     </div>
