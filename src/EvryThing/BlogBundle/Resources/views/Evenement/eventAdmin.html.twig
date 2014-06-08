@@ -1,0 +1,150 @@
+{# src/EvryThing/BlogBundle/Resources/views/layout.html.twig #}
+	{%extends "::layout.html.twig"%}
+	{% block stylesheets %}
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Blog.css') }}" type="text/css" media="all" />
+		{{ parent() }}
+	{% endblock %}
+	{%block title%}
+		{{parent()}}
+	{%endblock%}
+	{% block navigation %}
+		<li><a href="{{path('evry_thing_blog_accueil', {'page':1})}}" class="navOrange">ACTUALIT&EacuteS</a></li>
+		<li><a href="{{path('evry_thing_blog_evry')}}" class="navBleu">MIAGE &EacuteVRY</a></li>
+		<li><a href="{{path('evry_thing_blog_bde')}}" class="navOrange">BDE</a></li>
+		<li><a href="index.html.twig" class="navBleu">MIAGE CONNEXION</a></li>
+		<li><a href="evry.html" class="navOrange">&EacuteV&EgraveNEMENTS</a></li>
+		<li><a href="{{path('evry_thing_galerie_admin')}}" class="navBleu">GALERIE</a></li>
+		<li><a href="index.html.twig" class="navOrange">DOCUMENTS</a></li>
+		<li><a href="evry.html" class="navBleu">ADH&EacuteSIONS</a></li>
+		<li><a href="bde.html" class="navOrange">ESPACE ANCIEN</a></li>
+		<li><a href="{{ path('evry_thing_blog_contact') }}" class="navBleu">CONTACT</a></li>
+		<li><a href="{{ path('evry_thing_blog_admin') }}" class="navOrange">Admin</a></li>	{% endblock %}
+	{%block principal%}
+	<div id="principal">
+		<ul>		
+			{% for article in articles %}
+				{%if article.taille == "petitG"%}
+					<li class="article petitG">
+						<div class="artTitre">
+							<h1 class="titre1">{{ article.titre }}</h1>
+							<a href="{{path('evry_thing_blog_ajouter', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/ajouter.png') }}" alt="ajout{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_modifier', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/modifier.gif') }}" alt="mod{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_supprimer', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/supprimer.gif') }}" alt="supp{{article.id}}" /></a>
+						</div>
+						<p class="contenu">
+							<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+							{{ article.contenu }}
+						</p>
+						<div class="contenudur">
+							<input id="boutonP{{ loop.index }}" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler(this.id)">
+							<input id="boutonM{{ loop.index }}" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler(this.id)">
+                            <p class="contenudur" style="display:none;">
+								ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+							</p>
+						</div>
+						<div class="footer">
+							par, le {{ article.date|date('d/m/Y') }}
+						</div>
+					</li>
+				{%elseif article.taille == "petitD"%}
+					<li class="article petitD">
+						<div class="artTitre">
+							<h1 class="titre1">{{ article.titre }}</h1>
+							<a href="{{path('evry_thing_blog_ajouter', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/ajouter.png') }}" alt="ajout{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_modifier', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/modifier.gif') }}" alt="mod{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_supprimer', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/supprimer.gif') }}" alt="supp{{article.id}}" /></a>
+						</div>
+						<p class="contenu">
+							<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+							{{ article.contenu }}
+						</p>
+						<div class="contenudur"> 
+							<input id="boutonP{{ loop.index }}" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler(this.id)">
+							<input id="boutonM{{ loop.index }}" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler(this.id)">
+                            <p class="contenudur" style="display:none;">
+								ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'  
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+								ceci est le corps de l'article : ceci est le corps de l'article'   
+							</p>
+						</div>
+						<div class="footer">
+							par, le {{ article.date|date('d/m/Y') }}
+						</div>
+					</li>
+				{%elseif article.taille == "grand"%}
+					<li class="article grand">
+						<div class="artTitre">
+							<h1 class="titre1">{{ article.titre }}</h1>
+							<a href="{{path('evry_thing_blog_ajouter', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/ajouter.png') }}" alt="ajout{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_modifier', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/modifier.gif') }}" alt="mod{{article.id}}" /></a>
+							<a href="{{path('evry_thing_blog_supprimer', {'id':article.id})}}" class="navOrange"><img src="{{ asset('bundles/evrythingblog/images/logos/supprimer.gif') }}" alt="supp{{article.id}}" /></a>
+						</div>
+						<p class="contenu">
+							<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+							{{ article.contenu }}
+						</p>
+						<div class="contenudur">
+							<input id="boutonP{{ loop.index }}" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler(this.id)">
+							<input id="boutonM{{ loop.index }}" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler(this.id)">
+                            <p class="contenudur" style="display:none;">
+								ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                            </p>
+						</div>
+					</li>
+				{%endif%}
+			{% else %}
+				<!--<li>Pas (encore !) d'articles</li>-->
+			{% endfor %}
+		</ul>	
+	</div>
+	<script>
+		function derouler(idbutton) {
+			ciblecontenu = document.getElementById(idbutton).nextElementSibling.nextElementSibling;
+			ciblecontenu.style.display='block';
+			agrandirbazard = document.getElementById(idbutton).parentNode.parentNode;
+			agrandirbazard.style.height="auto";
+			ciblebuttonmoins = document.getElementById(idbutton).nextElementSibling;
+			ciblebuttonmoins.style.display='block';
+			document.getElementById(idbutton).style.display='none';
+		}
+
+		function enrouler(idbutton){
+			cachecontenu = document.getElementById(idbutton).nextElementSibling;
+			cachecontenu.style.display='none';
+			reduirbazard = document.getElementById(idbutton).parentNode.parentNode;
+			reduirbazard.style.height="300px";
+			buttonplus = document.getElementById(idbutton).previousElementSibling;
+			document.getElementById(idbutton).style.display='none';
+			buttonplus.style.display='block';
+		}
+	</script>
+	{%endblock%}

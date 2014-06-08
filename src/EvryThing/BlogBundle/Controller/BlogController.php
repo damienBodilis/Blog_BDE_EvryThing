@@ -43,8 +43,11 @@ class BlogController extends Controller
 		$paginator  = $this->get('knp_paginator');
 		$articles = $paginator->paginate($query,$this->get('request')->query->get('page', $page), 5);
 
-		
-		/******************* formulaire ***************/
+			
+		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles));
+	}
+	public function renderCommentaireAction()
+	{
 		$commentaire = new Commentaire();
 		$form = $this->createForm(new CommentaireType(), $commentaire);
 		$user = $this->container->get('security.context')->getToken()->getUser();
@@ -63,9 +66,9 @@ class BlogController extends Controller
 				return $this->redirect('EvryThingBlogBundle:Blog:accueil.html.twig');
 			}
 		}		
-		return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig', array('articles' => $articles, 'form' => $form->createView()));
+		return $this->render('EvryThingBlogBundle:Blog:formCommentaire.html.twig', array('form' => $form->createView()));
 	}
-  
+
     /**
      * Show a blog entry
      */

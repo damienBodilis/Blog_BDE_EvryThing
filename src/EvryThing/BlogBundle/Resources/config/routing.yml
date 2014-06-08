@@ -4,6 +4,10 @@ evry_thing_blog_accueil:
     requirements:
         page: \d*
 
+evry_thing_blog_formCommentaire:
+    pattern: /commentaire/form
+    defaults: { _controller: EvryThingBlogBundle:Blog:renderCommentaire }
+
 evry_thing_blog_admin:
     pattern: /admin
     defaults: { _controller: EvryThingBlogBundle:Blog:admin }

@@ -1,0 +1,126 @@
+{# src/EvryThing/BlogBundle/Resources/views/Blog/evenement.html.twig #}
+	{%extends "::layout.html.twig"%}
+	{% block stylesheets %}
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Blog.css') }}" type="text/css" media="all" />
+		{{ parent() }}
+	{% endblock %}
+	{%block title%}
+		{{parent()}}
+	{%endblock%}
+	{%block principal%}
+	<div id="principal"  class="col-md-12">
+		<ul>		
+			{% for article in articles %}
+				{% if loop.first %}
+				<li class="article grand col-md-12">
+					<div class="artTitre">
+						<h1 class="titre1">{{ article.title }}</h1>
+					</div>
+					<p class="contenu">
+						<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+						{{ article.accroche }}
+					</p>
+					<div class="contenudur">
+						<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
+						<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
+						<p class="contenudur" style="display:none;">
+							{{ article.contenu }}
+						</p>
+					</div>
+					<div class="footer">
+						par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
+					</div>
+					<div class="com">
+						<div class="commentaires{{ article.id }}" style="padding:3px;">
+							{% for commentaire in article.commentaires %}
+								<div>{{ commentaire.contenu }}</div>
+								<div class="comFooter">
+									{{ commentaire.auteur }}
+									{{ commentaire.date|date('d/m/Y') }}
+								</div>
+								<div class="trait"></div>
+							{% endfor %}
+							<form method="post" {{ form_enctype(form) }}>
+								{{ form_row(form.contenu) }}
+								<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+								{{ form_row(form.input) }}
+							</form>			
+						</div>
+					</div>
+				</li>
+				{%elseif loop.index != 1%}
+					<li class="article petit col-md-6">
+						<div class="artTitre">
+							<h1 class="titre1">{{ article.title }}</h1>
+						</div>
+						<p class="contenu">
+							<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+							{{ article.accroche }}
+						</p>
+						<div class="contenudur">
+							<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
+							<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
+                            <p class="contenudur" style="display:none;">
+								{{ article.contenu }}
+							</p>
+						</div>
+						<div class="footer">
+							par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
+						</div>
+						<div class="com">
+							<div class="commentaires{{ article.id }}" style="padding:3px;">
+								{% for commentaire in article.commentaires %}
+									<div>{{ commentaire.contenu }}</div>
+									<div class="comFooter">
+										{{ commentaire.auteur }}
+										{{ commentaire.date|date('d/m/Y') }}
+									</div>
+									<div class="trait"></div>
+								{% endfor %}
+								<form method="post" {{ form_enctype(form) }}>
+									{{ form_row(form.contenu) }}
+									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+									{{ form_row(form.input) }}
+								</form>								
+							</div>
+						</div>
+					</li>				
+				{%endif%}
+			</tr>
+			{% else %}
+				<!--<li>Pas (encore !) d'articles</li>-->
+			{% endfor %}
+		</ul>	
+		<div class="navigation">
+			{{ knp_pagination_render(articles) }}
+		</div>
+	</div>
+	<script>
+		function derouler(id) {
+			ciblecontenu = document.getElementById('boutonP'+id).nextElementSibling.nextElementSibling;
+			ciblecontenu.style.display='block';
+			agrandirbazard = document.getElementById('boutonP'+id).parentNode.parentNode;
+			//agrandirbazard.style.webkitTransition = 'height 5s';
+			agrandirbazard.style.height="auto";
+			ciblebuttonmoins = document.getElementById('boutonP'+id).nextElementSibling;
+			ciblebuttonmoins.style.display='block';
+			document.getElementById('boutonP'+id).style.display='none';
+			coms = document.getElementsByClassName('commentaires'+id);
+			coms[0].parentNode.style.display = 'block';
+		}
+
+		function enrouler(id){
+			cachecontenu = document.getElementById('boutonM'+id).nextElementSibling;
+			cachecontenu.style.display='none';
+			reduirbazard = document.getElementById('boutonM'+id).parentNode.parentNode;
+			reduirbazard.style.height="300px";
+			buttonplus = document.getElementById('boutonM'+id).previousElementSibling;
+			document.getElementById('boutonM'+id).style.display='none';
+			buttonplus.style.display='block';
+			coms = document.getElementsByClassName('commentaires'+id);
+			coms[0].parentNode.style.display = 'none';
+			//coms[0].parentNode.style.webkitTransitionDuration = "2s";
+		}
+	</script>
+	{%endblock%}
