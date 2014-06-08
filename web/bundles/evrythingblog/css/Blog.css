@@ -12,6 +12,7 @@
 	word-wrap: break-word;
 	border-style:outset;	
 	border-color:#c3c3c3;
+	border-radius:7px;
 }
 .article .artTitre{
 	margin-left:0px;
@@ -23,6 +24,8 @@
 	border-style:outset;	
 	border-color:#c3c3c3;
 	border-width:0px;
+	border-radius:3px;
+	margin-top:8px;
 }
 .article .contenu{
 
@@ -66,6 +69,8 @@
 	background-color:lightslategrey;
 	width:100%;
 	margin-bottom:5px;
+border-radius:9px;
+border: 4px solid #f8a102;
 }
 .trait{
 	border:2px;
