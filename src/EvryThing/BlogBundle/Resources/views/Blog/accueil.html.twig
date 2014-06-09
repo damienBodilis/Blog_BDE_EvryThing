@@ -10,45 +10,12 @@
 	{%endblock%}
 	{%block principal%}
 	<div id="principal"  class="container marketing col-md-12">
-		<ul>		
-			{% for article in articles %}
-				{% if loop.first %}
-				<li class="article grand col-md-12">
-					<div class="artTitre">
-						<h1 class="titre1">{{ article.title }}</h1>
-					</div>
-					<p class="contenu">
-						<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
-						{{ article.accroche }}
-					</p>
-					<div class="contenudur">
-						<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
-						<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
-						<p class="contenudur" style="display:none;">
-							{{ article.contenu }}
-						</p>
-					</div>
-					<div class="footer">
-						par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
-					</div>
-					<div class="com">
-						<div class="commentaires{{ article.id }}" style="padding:3px;">
-							{% for commentaire in article.commentaires %}
-								<div>{{ commentaire.contenu }}</div>
-								<div class="comFooter">
-									{{ commentaire.auteur }}
-									{{ commentaire.date|date('d/m/Y') }}
-								</div>
-								<div class="trait"></div>
-								{% endfor %}
-								{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
-									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
-								</form>		
-						</div>
-					</div>
-				</li>
-				{%elseif loop.index != 1%}
-					<li class="article petit col-md-6">
+
+		<div class="row placeholders">
+			<ul>		
+				{% for article in articles %}
+					{% if loop.first %}
+					<li class="article grand col-md-12 col-xs-12">
 						<div class="artTitre">
 							<h1 class="titre1">{{ article.title }}</h1>
 						</div>
@@ -59,7 +26,7 @@
 						<div class="contenudur">
 							<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
 							<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
-                            <p class="contenudur" style="display:none;">
+							<p class="contenudur" style="display:none;">
 								{{ article.contenu }}
 							</p>
 						</div>
@@ -75,19 +42,55 @@
 										{{ commentaire.date|date('d/m/Y') }}
 									</div>
 									<div class="trait"></div>
-								{% endfor %}
+									{% endfor %}
 									{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
-									<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
-								</form>										
+										<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+									</form>		
 							</div>
 						</div>
-					</li>				
-				{%endif%}
-			</tr>
-			{% else %}
-				<!--<li>Pas (encore !) d'articles</li>-->
-			{% endfor %}
-		</ul>	
+					</li>
+					{%elseif loop.index != 1%}
+						<li class="article petit col-md-6 col-xs-12">
+							<div class="artTitre">
+								<h1 class="titre1">{{ article.title }}</h1>
+							</div>
+							<p class="contenu">
+								<img src="{{ asset(article.image) }}" alt="img{{article.id}}" />
+								{{ article.accroche }}
+							</p>
+							<div class="contenudur">
+								<input id="boutonP{{ article.id }}" class="btn btn-warning" type="button" name="derouleur" value="+ DE DETAILS" onClick="derouler({{ article.id }})">
+								<input id="boutonM{{ article.id }}" class="btn btn-warning" type="button" style="display:none;" name="enrouleur" value="- DE DETAILS" onClick="enrouler({{ article.id }})">
+								<p class="contenudur" style="display:none;">
+									{{ article.contenu }}
+								</p>
+							</div>
+							<div class="footer">
+								par {{ article.author }}, le {{ article.updated|date('d/m/Y') }}
+							</div>
+							<div class="com">
+								<div class="commentaires{{ article.id }}" style="padding:3px;">
+									{% for commentaire in article.commentaires %}
+										<div>{{ commentaire.contenu }}</div>
+										<div class="comFooter">
+											{{ commentaire.auteur }}
+											{{ commentaire.date|date('d/m/Y') }}
+										</div>
+										<div class="trait"></div>
+									{% endfor %}
+										{{ render(controller("EvryThingBlogBundle:Blog:renderCommentaire"))}}
+										<input type="input" name="blog" value="{{ article.id }}"  style="display:none;"/>
+									</form>										
+								</div>
+							</div>
+						</li>				
+					{%endif%}
+				</tr>
+				{% else %}
+					<!--<li>Pas (encore !) d'articles</li>-->
+				{% endfor %}
+			</ul>	
+		</div>
 			<div class="navigation col-md-12">
 				{{ knp_pagination_render(articles) }}
 			</div>
